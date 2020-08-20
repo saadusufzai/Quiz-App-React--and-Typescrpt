@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
 import {getQuizDetails} from './services/service'
-import { data } from './types/types';
+import { data,quiz } from './types/types';
+import QuestionUi from './components/QuestionUi';
 
 function App() {
-  let [quiz, setQuiz] =useState<data[]>([])
+  let [quiz, setQuiz] =useState<quiz[]>([])
 
   useEffect(()=>{
     const fetch =async ()=>{
@@ -17,10 +18,8 @@ function App() {
   console.log(quiz)
   return (
     <div>
-      {/* {quiz.map((e)=>{
-        <h1>{e.category}</h1>
-       
-      })} */}
+      <h1>QUIZ APP</h1>
+      <QuestionUi quiz={quiz}/>
     </div>
   );
 }
