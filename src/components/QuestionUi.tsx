@@ -1,13 +1,13 @@
 import React from 'react'
 import { questionProps} from '../types/types'
-const QuestionUi:React.FC<questionProps> = ({ question, options }) => {
-    console.log(question,options)
-
+const QuestionUi:React.FC<questionProps> = ({ question, options,handelSubmit }) => {
+    
+    
     return (
         
         <div>
             <h1>{question}</h1>    
-                <form>
+                <form onSubmit={handelSubmit}>
                 {options.map((e:string, ind: number)=>{
                       return(
                       <div key={ind}>
@@ -15,7 +15,6 @@ const QuestionUi:React.FC<questionProps> = ({ question, options }) => {
                         <input
                          type="radio"
                          name="opt"
-                         
                          value={e}/>
                          {e}
                     </label>

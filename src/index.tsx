@@ -4,7 +4,10 @@ import './index.css';
 import App from './App';
 ReactDOM.render(
   
-    <App />,
+    <>
+    <h1 style={{textAlign:'center'}}>QUIZ APP BY SAAD</h1>
+    <App />
+    </>,
  
   document.getElementById('root')
 );

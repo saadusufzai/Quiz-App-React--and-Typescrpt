@@ -16,4 +16,5 @@
  export type questionProps = {
      question:string
      options:string[]
+     handelSubmit:(e:React.FormEvent<EventTarget>)=>void
  }
