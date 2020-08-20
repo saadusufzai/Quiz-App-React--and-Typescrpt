@@ -9,17 +9,20 @@ function App() {
 
   useEffect(()=>{
     const fetch =async ()=>{
-    const data:data[] =  await getQuizDetails(5,10,'easy')
+    const data =  await getQuizDetails(5,10,'easy')
     
     setQuiz(data)
   }
   fetch()
   },[])
   console.log(quiz)
+  if(!quiz.length){
+    return<h1>Loading...</h1>
+  }
   return (
     <div>
       <h1>QUIZ APP</h1>
-      <QuestionUi quiz={quiz}/>
+      <QuestionUi question={quiz[0].question} options={quiz[0].options}/>
     </div>
   );
 }
