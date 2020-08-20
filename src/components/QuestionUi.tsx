@@ -1,13 +1,16 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { questionProps} from '../types/types'
 const QuestionUi:React.FC<questionProps> = ({ question, options,handelSubmit }) => {
     
-    
+    let[selectedAns, setSelectedAns] = useState('')
+    const handelSelection =(e:any)=>{
+            setSelectedAns(e.target.value)
+    }
     return (
-        
+                
         <div>
             <h1>{question}</h1>    
-                <form onSubmit={handelSubmit}>
+                <form onSubmit={(e:React.FormEvent<EventTarget>)=>handelSubmit(e,selectedAns)}>
                 {options.map((e:string, ind: number)=>{
                       return(
                       <div key={ind}>
@@ -15,7 +18,11 @@ const QuestionUi:React.FC<questionProps> = ({ question, options,handelSubmit }) 
                         <input
                          type="radio"
                          name="opt"
-                         value={e}/>
+                         value={e}
+                         onChange={handelSelection}
+                         required
+                         checked={selectedAns===e}
+                         />
                          {e}
                     </label>
                    </div>

@@ -10,6 +10,7 @@ function App() {
   let [totalQuestions, setTotalQuestions] =useState<number>(5)
   let [category, setCategory] =useState<number>(12)
   let [level, setLevel] =useState<string>('easy')
+  const [points, setPoints] =useState<string>('easy')
 
   useEffect(()=>{
     const fetch =async ()=>{
@@ -20,12 +21,13 @@ function App() {
   fetch()
   },[])
 
-  const handelSubmit =(e:React.FormEvent<EventTarget>)=>{
+  const handelSubmit =(e:React.FormEvent<EventTarget>,selectedAns:string)=>{
     e.preventDefault()
+    console.log(selectedAns)
     if(step !== totalQuestions){
       setStep(++step)
     }
-    console.log(e.target)
+   
     
     
 
