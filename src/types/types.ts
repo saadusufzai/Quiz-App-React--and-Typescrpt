@@ -18,3 +18,12 @@
      options:string[]
      handelSubmit:(e:React.FormEvent<EventTarget>, selectedAns:string)=>void
  }
+
+ export type category ={
+     id:number
+     name:string
+ }
+
+ export type categoryAPI = {
+    '' : []
+ }

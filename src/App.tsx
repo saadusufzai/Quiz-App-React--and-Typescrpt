@@ -3,12 +3,13 @@ import './App.css';
 import {getQuizDetails} from './services/service'
 import { quiz } from './types/types';
 import QuestionUi from './components/QuestionUi';
+import Welcome from './components/Welcome';
 
 function App() {
   let [quiz, setQuiz] =useState<quiz[]>([])
   let [step, setStep] =useState<number>(0)
   let [totalQuestions, setTotalQuestions] =useState<number>(5)
-  let [category, setCategory] =useState<number>(12)
+  let [category, setCategory] =useState<number>(13)
   let [level, setLevel] =useState<string>('easy')
   let [points, setPoints] =useState<number>(0)
 
@@ -52,7 +53,7 @@ function App() {
   }
   return (
     <div>
-      
+      <Welcome/>
       <QuestionUi question={quiz[step].question} options={quiz[step].options} handelSubmit={handelSubmit}/>
     </div>
   );
