@@ -10,7 +10,7 @@ function App() {
   let [totalQuestions, setTotalQuestions] =useState<number>(5)
   let [category, setCategory] =useState<number>(12)
   let [level, setLevel] =useState<string>('easy')
-  const [points, setPoints] =useState<string>('easy')
+  let [points, setPoints] =useState<number>(0)
 
   useEffect(()=>{
     const fetch =async ()=>{
@@ -20,10 +20,12 @@ function App() {
   }
   fetch()
   },[])
-
+  console.log(quiz)
   const handelSubmit =(e:React.FormEvent<EventTarget>,selectedAns:string)=>{
     e.preventDefault()
-    console.log(selectedAns)
+    if(selectedAns === quiz[step].answer){
+      setPoints(++ points)
+    }
     if(step !== totalQuestions){
       setStep(++step)
     }
@@ -39,7 +41,14 @@ function App() {
   
   if(step === totalQuestions){
     
-    return<h1>You have completed Your Quiz</h1>
+    return<div>
+      <h1>{points>=totalQuestions/2 ? `CONGRATS!`:`BETTER LUCK NEXT TIME`}</h1>
+       <h1>You have completed Your Quiz</h1>
+       <h2>TOTAL POINTS:{points}</h2>
+      <h3>Want to try Again ? </h3>
+      <button onClick={()=>setStep(0)}>New Quiz</button> 
+    </div>
+
   }
   return (
     <div>
