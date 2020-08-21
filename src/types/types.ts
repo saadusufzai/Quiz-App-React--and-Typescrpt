@@ -27,3 +27,7 @@
  export type categoryAPI = {
     '' : []
  }
+
+ export type welcomeProp ={
+     setCategory:React.Dispatch<React.SetStateAction<number>>
+ }
