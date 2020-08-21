@@ -21,9 +21,9 @@ const Welcome = () => {
                 <h1>Catagories</h1>
                 <form>
                     <select name="category">
-                        {name?.map((e)=>{
+                        {name?.map((e,i)=>{
                             return(
-                            <option value={e}>{e}</option>
+                            <option key={i} value={e}>{e}</option>
                             )
                         })}
                         
