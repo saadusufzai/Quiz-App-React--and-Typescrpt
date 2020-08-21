@@ -6,13 +6,13 @@ const Welcome = () => {
         const data = async ()=>{
            const category = await categories()
            setName(category.map((e)=>e.name))
-           console.log(name)
+           
         }
         
             data()
         
     }, [])
-    
+    console.log(name)
     return (
         <div>
             <h1>Welcome to the Ultimate Quiz App</h1>
@@ -21,7 +21,13 @@ const Welcome = () => {
                 <h1>Catagories</h1>
                 <form>
                     <select name="category">
+                        {name?.map((e)=>{
+                            return(
+                            <option value={e}>{e}</option>
+                            )
+                        })}
                         
+
                     </select>
                 </form>
             </div>
