@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 
 import { categories } from "../services/service";
-import {welcomeProp} from '../types/types'
+import { welcomeProp } from "../types/types";
 
-const Welcome:React.FC<welcomeProp> = ({setCategory}) => {
+const Welcome: React.FC<welcomeProp> = ({ setCategory }) => {
   const [name, setName] = useState<string[]>();
+  const [category, setSelectedCategory] = useState<string>("General Knowledge");
   useEffect(() => {
     const data = async () => {
       const category = await categories();
@@ -14,10 +15,10 @@ const Welcome:React.FC<welcomeProp> = ({setCategory}) => {
     data();
   }, []);
 
-  let handelCategory = (e: React.FormEvent<HTMLOptionElement>)=>{
-     console.log(e.target)
-  }
-  console.log(name);
+  let handelCategory = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedCategory(e.target.value);
+  };
+
   return (
     <div>
       <h1>Welcome to the Ultimate Quiz App</h1>
@@ -25,10 +26,15 @@ const Welcome:React.FC<welcomeProp> = ({setCategory}) => {
       <div>
         <h1>Catagories</h1>
         <form>
-          <select name="category">
+          <select
+            name="category"
+            onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+              handelCategory(e)
+            }
+          >
             {name?.map((e, i) => {
               return (
-                <option key={i} value={e}  onSelect={(e: React.FormEvent<HTMLOptionElement>)=>handelCategory(e)} >
+                <option key={i} value={e}>
                   {e}
                 </option>
               );
