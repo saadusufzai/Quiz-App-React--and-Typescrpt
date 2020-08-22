@@ -106,6 +106,7 @@ const Welcome: React.FC<welcomeProp> = ({
           </div>
         </form>
       </div>
+      <p className='youCanDoIt'>You can Do it !</p>
     </div>
   );
 };

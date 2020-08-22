@@ -58,3 +58,39 @@ input[type=submit]:hover{
   background-color: black;
   color: #fff;
 }
+
+
+/* App.tsx */
+.youCanDoIt{
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor:pointer
+}
+
+
+/* questionUI.tsx */
+
+.question{
+  width: 80%;
+  margin: 0 auto;
+}
+
+.questionBox{
+  padding: 20px 15px;
+  border: solid rgba(0, 0, 0, 0.322)  1px ;
+  border-radius: 10px;
+  box-shadow: rgb(112, 112, 112) 0 0 5px 0;
+}
+
+.options{
+  margin: 10px;
+}
+input[type=radio] {
+  margin-right: 5px;
+}
+
+.question input[type=submit]{
+  margin: 10px;
+}

@@ -63,12 +63,7 @@ function App() {
   }
   return (
     <div>
-      <Welcome
-        setCategory={setCategory}
-        setTotalQuestions={setTotalQuestions}
-        setLevel={setLevel}
-        setStart={setStart}
-      />
+      
       {start ? (
         <QuestionUi
           question={quiz[step].question}
@@ -76,7 +71,13 @@ function App() {
           handelSubmit={handelSubmit}
         />
       ) : (
-        <p>You can Do it</p>
+        <Welcome
+        setCategory={setCategory}
+        setTotalQuestions={setTotalQuestions}
+        setLevel={setLevel}
+        setStart={setStart}
+      />
+        
       )}
     </div>
   );

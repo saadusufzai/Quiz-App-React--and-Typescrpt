@@ -10,7 +10,8 @@ const QuestionUi: React.FC<questionProps> = ({
     setSelectedAns(e.target.value);
   };
   return (
-    <div>
+    <div className='question'>
+      <div className='questionBox'>
       <h1>{question}</h1>
       <form
         onSubmit={(e: React.FormEvent<EventTarget>) =>
@@ -19,7 +20,7 @@ const QuestionUi: React.FC<questionProps> = ({
       >
         {options.map((e: string, ind: number) => {
           return (
-            <div key={ind}>
+            <div className='options' key={ind}>
               <label>
                 <input
                   type="radio"
@@ -37,6 +38,7 @@ const QuestionUi: React.FC<questionProps> = ({
 
         <input type="submit" value="submit" />
       </form>
+      </div>
     </div>
   );
 };
