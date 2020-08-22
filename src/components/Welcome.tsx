@@ -10,8 +10,8 @@ const Welcome: React.FC<welcomeProp> = ({ setCategory }) => {
   useEffect(() => {
     const data = async () => {
       const category = await categories();
-      
       setName(category.map((e) => e.name));
+      
     };
 
     data();
@@ -19,9 +19,10 @@ const Welcome: React.FC<welcomeProp> = ({ setCategory }) => {
 
   let handelCategory = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedCategory(e.target.value);
+    setCategory(e.target.selectedIndex+9)
   };
 
-  console.log(name)
+  
 
   return (
     <div>

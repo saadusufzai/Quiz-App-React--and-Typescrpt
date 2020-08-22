@@ -20,12 +20,8 @@ function App() {
       setQuiz(data);
     };
     fetch();
-  }, []);
-  console.log(quiz);
-
-  const handelQuizSelection = ()=>{
-
-  }
+  }, [category]);
+ 
 
   const handelSubmit = (
     e: React.FormEvent<EventTarget>,
