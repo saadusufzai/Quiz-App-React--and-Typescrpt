@@ -5,10 +5,12 @@ import { welcomeProp } from "../types/types";
 
 const Welcome: React.FC<welcomeProp> = ({ setCategory }) => {
   const [name, setName] = useState<string[]>();
-  const [category, setSelectedCategory] = useState<string>("General Knowledge");
+  
+  const [selCategory, setSelectedCategory] = useState<string>("General Knowledge");
   useEffect(() => {
     const data = async () => {
       const category = await categories();
+      
       setName(category.map((e) => e.name));
     };
 
@@ -19,13 +21,15 @@ const Welcome: React.FC<welcomeProp> = ({ setCategory }) => {
     setSelectedCategory(e.target.value);
   };
 
+  console.log(name)
+
   return (
     <div>
       <h1>Welcome to the Ultimate Quiz App</h1>
       <p>Select your ultimate quiz and test your knowledge </p>
       <div>
         <h1>Catagories</h1>
-        <form>
+        <form >
           <select
             name="category"
             onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>

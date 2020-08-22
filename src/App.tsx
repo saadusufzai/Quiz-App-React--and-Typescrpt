@@ -22,6 +22,11 @@ function App() {
     fetch();
   }, []);
   console.log(quiz);
+
+  const handelQuizSelection = ()=>{
+
+  }
+
   const handelSubmit = (
     e: React.FormEvent<EventTarget>,
     selectedAns: string
