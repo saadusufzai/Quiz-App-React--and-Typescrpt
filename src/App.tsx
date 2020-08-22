@@ -12,6 +12,7 @@ function App() {
   let [category, setCategory] = useState<number>(13);
   let [level, setLevel] = useState<string>("easy");
   let [points, setPoints] = useState<number>(0);
+  let [start, setStart] = useState<boolean>(false);
   
   
 
@@ -22,7 +23,7 @@ function App() {
       setQuiz(data);
     };
     fetch();
-  }, [category]);
+  }, [level]);
  
 
   const handelSubmit = (
@@ -30,6 +31,7 @@ function App() {
     selectedAns: string
   ) => {
     e.preventDefault();
+    
     if (selectedAns === quiz[step].answer) {
       setPoints(++points);
     }
@@ -38,12 +40,16 @@ function App() {
     }
   };
 
+
+
   if (!quiz.length) {
     return <h1>Loading...</h1>;
   }
 
   if (step === totalQuestions) {
+    
     return (
+      
       <div>
         <h1>
           {points >= totalQuestions / 2 ? `CONGRATS!` : `BETTER LUCK NEXT TIME`}
@@ -51,18 +57,19 @@ function App() {
         <h1>You have completed Your Quiz</h1>
         <h2>TOTAL POINTS:{points}</h2>
         <h3>Want to try Again ? </h3>
-        <button onClick={() => setStep(0)}>New Quiz</button>
+        <button onClick={() => {setStep(0); setStart(!start)}}>New Quiz</button>
       </div>
     );
+    
   }
   return (
     <div>
-      <Welcome setCategory={setCategory} setTotalQuestions={setTotalQuestions} />
-      <QuestionUi
+      <Welcome setCategory={setCategory} setTotalQuestions={setTotalQuestions} setLevel={setLevel} setStart={setStart} />
+     {start ?  <QuestionUi
         question={quiz[step].question}
         options={quiz[step].options}
         handelSubmit={handelSubmit}
-      />
+      /> : <p>You can Do it</p>}
     </div>
   );
 }
