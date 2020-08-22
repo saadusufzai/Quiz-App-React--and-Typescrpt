@@ -4,6 +4,7 @@ import { getQuizDetails } from "./services/service";
 import { quiz } from "./types/types";
 import QuestionUi from "./components/QuestionUi";
 import Welcome from "./components/Welcome";
+import Spinner from 'react-bootstrap/Spinner'
 
 function App() {
   let [quiz, setQuiz] = useState<quiz[]>([]);
@@ -21,7 +22,7 @@ function App() {
       setQuiz(data);
     };
     fetch();
-  }, [totalQuestions]);
+  }, [start]);
 
   const handelSubmit = (
     e: React.FormEvent<EventTarget>,
@@ -40,34 +41,38 @@ function App() {
 
 
   if (!quiz.length) {
-    return <h1>Loading...</h1>;
+    return <Spinner animation="border" role="status">
+    <span className="sr-only">Loading...</span>
+  </Spinner>;
   }
-
+  
   if (step === totalQuestions) {
     return (
-      <div>
+      <div className='exit'>
         <h1>
           {points >= totalQuestions / 2 ? `CONGRATS!` : `BETTER LUCK NEXT TIME`}
         </h1>
         <h1>You have completed Your Quiz</h1>
-        <h2>TOTAL POINTS:{points}</h2>
+       <h2>Your Score : {points}/{totalQuestions}</h2>
         <h3>Want to try Again ? </h3>
         <button
+          className='btn'
           onClick={() => {
             setStep(0);
             setStart(!start);
           }}
         >
-          New Quiz
+         Start New Quiz
         </button>
       </div>
     );
   }
   return (
     <div>
-      
+     
       {start ? (
         <QuestionUi
+        
           question={quiz[step].question}
           options={quiz[step].options}
           handelSubmit={handelSubmit}
