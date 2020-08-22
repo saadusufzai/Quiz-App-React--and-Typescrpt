@@ -30,4 +30,6 @@
 
  export type welcomeProp ={
      setCategory:React.Dispatch<React.SetStateAction<number>>
+     setTotalQuestions:React.Dispatch<React.SetStateAction<number>>
+     
  }

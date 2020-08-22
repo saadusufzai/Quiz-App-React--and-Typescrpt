@@ -12,6 +12,8 @@ function App() {
   let [category, setCategory] = useState<number>(13);
   let [level, setLevel] = useState<string>("easy");
   let [points, setPoints] = useState<number>(0);
+  
+  
 
   useEffect(() => {
     const fetch = async () => {
@@ -55,7 +57,7 @@ function App() {
   }
   return (
     <div>
-      <Welcome setCategory={setCategory} />
+      <Welcome setCategory={setCategory} setTotalQuestions={setTotalQuestions} />
       <QuestionUi
         question={quiz[step].question}
         options={quiz[step].options}
