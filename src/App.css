@@ -1,38 +1,60 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
+@keyframes loading {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Welcome.tsx */
+.welcome{
+  width: 80%;
+  margin: 0 auto;
+}
+
+.heading{
+  text-align: center;
+  line-height: 1;
+}
+.form{
+  display:flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+}
+
+select{
+  width: 90%;
+  padding: 5px 10px;
+  border: 1px rgba(0, 0, 0, 0.322) solid;
+  border-radius: 5px;
+}
+
+.box{
+  margin-top:20px;
+  width: 200px;
+  height: 250px;
+  padding:10px 20px ;
+  border-radius: 5%;
+  box-shadow: rgb(112, 112, 112) 0 0 10px 0;
+}
+
+.startQuiz{
+  margin-top: 30px;
+  text-align: center;
+}
+
+input[type=submit]{
+  border:solid rgba(0, 0, 0, 0.322)  1px;
+  padding:10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  background-color: #fff;
+}
+
+input[type=submit]:hover{
+  background-color: black;
+  color: #fff;
 }
