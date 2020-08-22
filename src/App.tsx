@@ -21,7 +21,7 @@ function App() {
       setQuiz(data);
     };
     fetch();
-  }, [level]);
+  }, [totalQuestions]);
 
   const handelSubmit = (
     e: React.FormEvent<EventTarget>,
@@ -36,6 +36,8 @@ function App() {
       setStep(++step);
     }
   };
+
+
 
   if (!quiz.length) {
     return <h1>Loading...</h1>;
