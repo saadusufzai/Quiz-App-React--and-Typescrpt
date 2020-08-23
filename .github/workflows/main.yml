@@ -35,7 +35,7 @@ jobs:
 # will run build
     
     - name: Yarn Build
-      run: yarn build
+      run: CI=false yarn build
     
     - name: installing Surge
       run: npm install -g surge
