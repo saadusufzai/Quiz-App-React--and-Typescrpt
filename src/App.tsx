@@ -47,13 +47,13 @@ function App() {
     return (
       <>
         <div className="exit">
-          <h1>
+          <h1 style={{color: `${points >= totalQuestions/2 ?'green' : 'red'}`}}>
             {points >= totalQuestions / 2
               ? `CONGRATS!`
-              : `BETTER LUCK NEXT TIME`}
+              : `BETTER LUCK NEXT TIME `}
           </h1>
           <h1>You have completed Your Quiz</h1>
-          <h2>TOTAL POINTS:{points}</h2>
+            <h2>TOTAL POINTS : {points}/{totalQuestions}</h2>
           <h3>Want to try Again ? </h3>
           <button
             className="btn"
@@ -63,6 +63,7 @@ function App() {
               setTotalQuestions(5);
               setLevel("easy");
               setCategory(9);
+              setPoints(0)
             }}
           >
             New Quiz

@@ -9,10 +9,13 @@ const QuestionUi: React.FC<questionProps> = ({
   const handelSelection = (e: any) => {
     setSelectedAns(e.target.value);
   };
+
+  function createMarkup() { return {__html: question}; };
+
   return (
     <div className='question'>
       <div className='questionBox'>
-      <h1>{question}</h1>
+      <h1 dangerouslySetInnerHTML ={createMarkup()} ></h1>
       <form
         onSubmit={(e: React.FormEvent<EventTarget>) =>
           handelSubmit(e, selectedAns)
