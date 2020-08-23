@@ -9,7 +9,7 @@ function App() {
   let [quiz, setQuiz] = useState<quiz[]>([]);
   let [step, setStep] = useState<number>(0);
   let [totalQuestions, setTotalQuestions] = useState<number>(5);
-  let [category, setCategory] = useState<number>(13);
+  let [category, setCategory] = useState<number>(9);
   let [level, setLevel] = useState<string>("easy");
   let [points, setPoints] = useState<number>(0);
   let [start, setStart] = useState<boolean>(false);
@@ -21,7 +21,7 @@ function App() {
       setQuiz(data);
     };
     fetch();
-  }, [totalQuestions]);
+  }, [start]);
 
   const handelSubmit = (
     e: React.FormEvent<EventTarget>,
@@ -40,12 +40,12 @@ function App() {
 
 
   if (!quiz.length) {
-    return <h1>Loading...</h1>;
+    return <h1 className='loader'>Loading...</h1>;
   }
 
   if (step === totalQuestions) {
     return (
-      <div>
+      <div className='exit'>
         <h1>
           {points >= totalQuestions / 2 ? `CONGRATS!` : `BETTER LUCK NEXT TIME`}
         </h1>
@@ -53,9 +53,13 @@ function App() {
         <h2>TOTAL POINTS:{points}</h2>
         <h3>Want to try Again ? </h3>
         <button
+          className='btn'
           onClick={() => {
             setStep(0);
             setStart(!start);
+            setTotalQuestions(5)
+            setLevel('easy')
+            setCategory(9)
           }}
         >
           New Quiz
