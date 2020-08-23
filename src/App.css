@@ -45,7 +45,7 @@ select{
   text-align: center;
 }
 
-input[type=submit], .btn{
+input[type=submit]{
   border:solid rgba(0, 0, 0, 0.322)  1px;
   padding:10px 15px;
   border-radius: 5px;
@@ -55,10 +55,6 @@ input[type=submit], .btn{
 }
 
 input[type=submit]:hover{
-  background-color: black;
-  color: #fff;
-}
-.btn:hover{
   background-color: black;
   color: #fff;
 }
@@ -97,20 +93,4 @@ input[type=radio] {
 
 .question input[type=submit]{
   margin: 10px;
-}
-
-/* better luck next time */
-
-.exit{
-  width: 80%;
-  margin: 0 auto;
-  text-align: center;
-  border: rgba(27, 11, 11, 0.425) solid 1px;
-  padding: 10px 10px 30px 10px;
-  border-radius: 15px;
-  box-shadow: rgb(148, 148, 148) 0 0 8px 0;
-}
-
-.loading{
-  
 }
