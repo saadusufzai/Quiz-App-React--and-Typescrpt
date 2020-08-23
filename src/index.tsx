@@ -5,7 +5,7 @@ import App from './App';
 ReactDOM.render(
   
     <>
-    <h1 style={{textAlign:'center'}}>QUIZ APP BY SAAD</h1>
+    <div className='header' style={{textAlign:'center'}}>QUIZ APP BY SAAD</div>
     <App />
     </>,
  

@@ -1,12 +1,16 @@
-@keyframes loading {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* Header */
 
+.header{
+  background-color: #292929;
+  padding: 10px;
+  color: #fff;
+  text-shadow: 1px 1px 5px ;
+  letter-spacing: 1rem;
+  height: 50px;
+  font-size: 32px;
+  font-weight: 500;
+  box-shadow: black 0 0 8px 0;
+}
 /* Welcome.tsx */
 .welcome{
   width: 80%;
@@ -66,6 +70,7 @@ input[type=submit]:focus{
 .btn:hover{
   background-color: black;
   color: #fff;
+  
 }
 
 
@@ -177,4 +182,27 @@ input[type=radio] {
     box-shadow: 0 -2em;
     height: 5em;
   }
+}
+
+/* FOOTER */
+.footer{
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  bottom: 0;
+  background-color: #292929;
+  height: 50px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+
+}
+.innerFooter{
+  text-transform: uppercase;
+  align-self: center;
+}
+.footer a{
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: .5rem;
 }

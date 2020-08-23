@@ -4,6 +4,7 @@ import { getQuizDetails } from "./services/service";
 import { quiz } from "./types/types";
 import QuestionUi from "./components/QuestionUi";
 import Welcome from "./components/Welcome";
+import Footer from "./components/Footer";
 
 function App() {
   let [quiz, setQuiz] = useState<quiz[]>([]);
@@ -85,6 +86,7 @@ function App() {
       />
         
       )}
+      <Footer/>
     </div>
   );
 }
