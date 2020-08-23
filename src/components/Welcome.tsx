@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 
 import { categories } from "../services/service";
 import { welcomeProp } from "../types/types";
-import QuestionUi from "./QuestionUi";
 
 const Welcome: React.FC<welcomeProp> = ({
   setCategory,
@@ -12,9 +11,6 @@ const Welcome: React.FC<welcomeProp> = ({
 }) => {
   const [name, setName] = useState<string[]>();
 
-  const [selCategory, setSelectedCategory] = useState<string>(
-    "General Knowledge"
-  );
   useEffect(() => {
     const data = async () => {
       const category = await categories();
@@ -25,7 +21,6 @@ const Welcome: React.FC<welcomeProp> = ({
   }, []);
 
   let handelCategory = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedCategory(e.target.value);
     setCategory(e.target.selectedIndex + 9);
   };
 
@@ -55,7 +50,7 @@ const Welcome: React.FC<welcomeProp> = ({
           }}
         >
           <div className="form">
-            <div className='box'>
+            <div className="box">
               <h3>Catagories</h3>
               <select
                 name="category"
@@ -72,7 +67,7 @@ const Welcome: React.FC<welcomeProp> = ({
                 })}
               </select>
             </div>
-            <div className='box'>
+            <div className="box">
               <h3>Total Questions</h3>
               <select
                 name="ammount"
@@ -87,7 +82,7 @@ const Welcome: React.FC<welcomeProp> = ({
                 <option value={25}>25</option>
               </select>
             </div>
-            <div className='box'>
+            <div className="box">
               <h3>Difficulty Level</h3>
               <select
                 name="difficulty"
@@ -106,7 +101,7 @@ const Welcome: React.FC<welcomeProp> = ({
           </div>
         </form>
       </div>
-      <p className='youCanDoIt'>You can Do it !</p>
+      <p className="youCanDoIt">You can Do it !</p>
     </div>
   );
 };

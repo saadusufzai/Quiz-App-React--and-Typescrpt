@@ -14,7 +14,8 @@ function App() {
   let [level, setLevel] = useState<string>("easy");
   let [points, setPoints] = useState<number>(0);
   let [start, setStart] = useState<boolean>(false);
-
+ 
+  
   useEffect(() => {
     const fetch = async () => {
       const data = await getQuizDetails(totalQuestions, category, level);
@@ -22,7 +23,7 @@ function App() {
       setQuiz(data);
     };
     fetch();
-  }, [start]);
+  }, [totalQuestions, category, level]);
 
   const handelSubmit = (
     e: React.FormEvent<EventTarget>,
@@ -38,39 +39,41 @@ function App() {
     }
   };
 
-
-
   if (!quiz.length) {
-    return <h1 className='loader'>Loading...</h1>;
+    return <h1 className="loader">Loading...</h1>;
   }
 
   if (step === totalQuestions) {
     return (
-      <div className='exit'>
-        <h1>
-          {points >= totalQuestions / 2 ? `CONGRATS!` : `BETTER LUCK NEXT TIME`}
-        </h1>
-        <h1>You have completed Your Quiz</h1>
-        <h2>TOTAL POINTS:{points}</h2>
-        <h3>Want to try Again ? </h3>
-        <button
-          className='btn'
-          onClick={() => {
-            setStep(0);
-            setStart(!start);
-            setTotalQuestions(5)
-            setLevel('easy')
-            setCategory(9)
-          }}
-        >
-          New Quiz
-        </button>
-      </div>
+      <>
+        <div className="exit">
+          <h1>
+            {points >= totalQuestions / 2
+              ? `CONGRATS!`
+              : `BETTER LUCK NEXT TIME`}
+          </h1>
+          <h1>You have completed Your Quiz</h1>
+          <h2>TOTAL POINTS:{points}</h2>
+          <h3>Want to try Again ? </h3>
+          <button
+            className="btn"
+            onClick={() => {
+              setStep(0);
+              setStart(!start);
+              setTotalQuestions(5);
+              setLevel("easy");
+              setCategory(9);
+            }}
+          >
+            New Quiz
+          </button>
+        </div>
+        <Footer/>
+      </>
     );
   }
   return (
     <div>
-      
       {start ? (
         <QuestionUi
           question={quiz[step].question}
@@ -79,14 +82,13 @@ function App() {
         />
       ) : (
         <Welcome
-        setCategory={setCategory}
-        setTotalQuestions={setTotalQuestions}
-        setLevel={setLevel}
-        setStart={setStart}
-      />
-        
+          setCategory={setCategory}
+          setTotalQuestions={setTotalQuestions}
+          setLevel={setLevel}
+          setStart={setStart}
+        />
       )}
-      <Footer/>
+      <Footer />
     </div>
   );
 }

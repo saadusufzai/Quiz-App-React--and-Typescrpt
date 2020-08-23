@@ -1,4 +1,4 @@
-import { data, quiz, category, categoryAPI } from "../types/types";
+import { data, quiz, category } from "../types/types";
 
 const shuffle = (array: any[]) => [...array].sort(() => Math.random() - 0.5);
 

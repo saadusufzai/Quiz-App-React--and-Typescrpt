@@ -1,120 +1,122 @@
 /* Header */
 
-.header{
+.header {
   background-color: #292929;
   padding: 10px;
   color: #fff;
-  text-shadow: 1px 1px 5px ;
-  letter-spacing: 1rem;
+  text-shadow: 2px 2px 15px rgba(0, 252, 176, 0.651);
+  letter-spacing: 0.5rem;
   height: 50px;
   font-size: 32px;
   font-weight: 500;
   box-shadow: black 0 0 8px 0;
 }
+
+.header a {
+  text-decoration: none;
+  color: #fff;
+}
 /* Welcome.tsx */
-.welcome{
+.welcome {
   width: 80%;
   margin: 0 auto;
 }
 
-.heading{
+.heading {
   text-align: center;
   line-height: 1;
 }
-.form{
-  display:flex;
+.form {
+  display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-
 }
 
-select{
+select {
   width: 90%;
   padding: 5px 10px;
   border: 1px rgba(0, 0, 0, 0.322) solid;
   border-radius: 5px;
 }
 
-.box{
-  margin-top:20px;
+.box {
+  margin-top: 20px;
   width: 200px;
   height: 250px;
-  padding:10px 20px ;
+  padding: 10px 20px;
   border-radius: 5%;
+  border-bottom: rgba(0, 252, 176, 0.651) 10px solid;
   box-shadow: rgb(112, 112, 112) 0 0 10px 0;
 }
 
-.startQuiz{
+.startQuiz {
   margin-top: 30px;
   text-align: center;
 }
 
-input[type=submit], .btn{
-  border:solid rgba(0, 0, 0, 0.322)  1px;
-  padding:10px 15px;
+input[type="submit"],
+.btn {
+  border: solid rgba(0, 0, 0, 0.322) 1px;
+  padding: 10px 15px;
   border-radius: 5px;
   cursor: pointer;
   text-transform: uppercase;
   background-color: #fff;
+  transition: all 0.3s cubic-bezier(0.42, 0, 0.58, 1) 0s;
 }
 
-input[type=submit]:hover{
+input[type="submit"]:hover {
   background-color: black;
   color: #fff;
 }
-input[type=submit]:focus{
+input[type="submit"]:focus {
   outline: 0;
 }
 
-
-.btn:hover{
+.btn:hover {
   background-color: black;
   color: #fff;
-  
 }
 
-
 /* App.tsx */
-.youCanDoIt{
+.youCanDoIt {
   text-align: center;
   font-size: 18px;
   font-weight: 600;
   text-transform: uppercase;
-  cursor:pointer
+  cursor: pointer;
 }
-
 
 /* questionUI.tsx */
 
-.question{
+.question {
   width: 80%;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 
-.questionBox{
+.questionBox {
   padding: 20px 15px;
-  border: solid rgba(0, 0, 0, 0.322)  1px ;
+  border: solid rgba(0, 0, 0, 0.322) 1px;
   border-radius: 10px;
   box-shadow: rgb(112, 112, 112) 0 0 5px 0;
 }
 
-.options{
+.options {
   margin: 10px;
 }
-input[type=radio] {
+input[type="radio"] {
   margin-right: 5px;
 }
 
-.question input[type=submit]{
+.question input[type="submit"] {
   margin: 10px;
 }
 
-
 /* exit */
 
-.exit{
+.exit {
   width: 80%;
-  margin: 0 auto;
+  margin: 20px auto;
   text-align: center;
   border: rgba(27, 11, 11, 0.425) solid 1px;
   padding: 10px 10px 30px 10px;
@@ -149,7 +151,7 @@ input[type=radio] {
 .loader:after {
   position: absolute;
   top: 0;
-  content: '';
+  content: "";
 }
 .loader:before {
   left: -1.5em;
@@ -185,24 +187,29 @@ input[type=radio] {
 }
 
 /* FOOTER */
-.footer{
+.footer {
   position: fixed;
   width: 100%;
   text-align: center;
   bottom: 0;
   background-color: #292929;
-  height: 50px;
+  min-height: 50px;
   color: #fff;
   display: flex;
   justify-content: center;
-
 }
-.innerFooter{
+.innerFooter {
   text-transform: uppercase;
   align-self: center;
+  letter-spacing: 0.3rem;
 }
-.footer a{
-  color: #fff;
+.footer a {
+  color: rgba(0, 252, 176, 0.651);
   text-decoration: none;
-  letter-spacing: .5rem;
+  letter-spacing: 0.3rem;
+}
+
+.footer a:hover {
+  color: #fff;
+  cursor: pointer;
 }
