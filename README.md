@@ -19,3 +19,8 @@ opentdb QUIZ API
 hosted on github
 CI/CD github actions
 running on surge.sh
+
+# Tools
+
+Node.js 
+Visual Studio Code 
