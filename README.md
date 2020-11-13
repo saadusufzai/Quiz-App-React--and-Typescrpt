@@ -25,3 +25,8 @@ running on surge.sh
 Node.js 
 Visual Studio Code 
 Quiz API
+
+## PWA ( Progressive Web App )
+this is a PWA and can be downloaded to desktops and used as a desktop app 
+it is also converted to Android APK and IOS Application.
+can be uploaded to App store and Playstore as a Native app .
